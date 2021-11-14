@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function doAfter (seconds) {
+        let myPromise = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve()
+            }, seconds)
+        })
+        return myPromise
+    }
+    //////////
+    /*let promise = doAfter(4000);
+    setTimeout(() => {
+        promise.then( () => console.log('я сработал') );
+    }, 2000)*/
+    /*let promise = new Promise((resolve) => {
+        let i = 0;
+        setInterval(() => {
+            i++;
+            resolve(console.log(i))
+        }, 2000)
+    })*/
+    /////////////
+    let callback1 = () => {
+        console.log('Мой промис зарезолвился');
+        return "Yo"
+    }
+    let callback2 = (res) => console.log(res);
+
+    /*let pr1 = doAfter(2000);
+    let pr2 = pr1.then(callback1);
+    pr2.then(callback2);*/
+    let pr = doAfter(2000)
+        .then(callback1)
+        .then(callback2)
+
+
+</script>
+
+</body>
+</html>

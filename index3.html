@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*let myPromise = new Promise((resolve) => {
+        resolve(Math.random());
+    })
+    myPromise.then((res) => {
+        console.log("myPromise - resolve. Мой ответ - " + res)
+    })
+    myPromise.then((res) => {
+        console.log("myPromise - resolve. Мой ответ - " + res)
+    })
+    console.log("finish")*/
+
+    /*function doAfter (seconds) {
+        let myPromise = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(console.log("resolved after " + seconds + "seconds"))
+            }, seconds)
+        })
+        return myPromise
+    }
+    doAfter(3000)*/
+    function doAfter (seconds) {
+        let myPromise = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(seconds)
+            }, seconds)
+        })
+        return myPromise
+    }
+    /*doAfter(3000).then((res) => {
+        console.log(`i worked after ${res} seconds`)
+    })*/
+    /*let pr1 = doAfter(3000)
+    let pr2 = doAfter(5000)
+
+    pr1.then((res) => {
+        console.log(`i worked after ${res} seconds`)
+    })
+    pr2.then((res) => {
+        console.log(`i worked after ${res} seconds`)
+    })*/
+    let promise3 = doAfter(3000);
+    promise3.then( () => console.log('я сработал через 3 секунд') );
+    promise3.then( () => console.log('и я тоже следом сработал через 3 секунд') );
+    promise3.then( () => console.log('и я') );
+
+</script>
+
+</body>
+</html>
