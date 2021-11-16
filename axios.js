@@ -7,7 +7,7 @@ const axios = {
                 };
                 if (url.indexOf('it-kamasutra') > 0) {
                     responseData = {
-                        requestedCount: data.count,
+                        requestedCount: data,
                         message: "we will prepare students for you"                        
                     }   
                 } else if (url.indexOf('google') > 0) {
@@ -20,10 +20,10 @@ const axios = {
                     }
                 } 
                 resolve({
-                    request: {},
+                    /*request: {},
                     status: 200,
                     headers: {},
-                    config: {},
+                    config: {},*/
                     data: responseData
                 })
             }, randomIntFromInterval(1,5)*1000);
