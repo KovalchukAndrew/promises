@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="axios.js"></script>
+<script src="api.js"></script>
+
+<script>
+    function doAfter (seconds) {
+        let myPromise = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve()
+            }, seconds)
+        })
+        return myPromise
+    }
+   /* api.sendStudentsCountToItKamasutra(20)
+        .then(res => {
+            console.log(res);
+        });*/
+
+   ////17
+
+    let pr1 = doAfter(2000);
+    let pr2 = doAfter(4000);
+    pr1.then(() => console.log("pr1 resolved"));
+    pr2.then(() => console.log("pr2 resolved"));
+
+    let aggregatePromise = Promise.all([pr1, pr2]);
+    aggregatePromise.then(() => console.log("pr1 and pr2 resolved!!!"))
+
+
+
+</script>
+
+</body>
+</html>
